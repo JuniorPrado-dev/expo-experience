@@ -12,14 +12,14 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
+        headerShown: false, //mostra cabeçario
       }}>
       <Tabs.Screen
-        name="index"
+        name="index" //indica componente de rota
         options={{
-          title: 'Home',
+          title: 'Home', //nome do icone
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={"red"} /> //configura cor e icone
           ),
         }}
       />
@@ -28,7 +28,16 @@ export default function TabLayout() {
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'game-controller' : 'code-slash-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="viagens"
+        options={{
+          title: 'Travels',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'airplane' : 'airplane-outline'} color={"pink"} />
           ),
         }}
       />
