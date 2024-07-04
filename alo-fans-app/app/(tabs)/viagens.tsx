@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const Viagens = () => {
     return (
       <SafeAreaView style={styles.container}>
-        <ImageBackground style={styles.image} resizeMode="cover" source={require("../../assets/images/avião.jpg")}>
+        <ImageBackground style={styles.image} resizeMode="cover" source={require("../../assets/images/airplane.jpg")}>
         <Text style={styles.title}>Viagens</Text>
       </ImageBackground>
     </SafeAreaView>
