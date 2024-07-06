@@ -13,7 +13,7 @@ const Teste = () => {
         height: "100%"
        ,padding: 20
     }}>
-        <Text>Teste</Text>  
+        <Text className="text-red-300 bg-white">Teste</Text>  
         <Link href={"../teste/comHead"}>Com Head</Link>
         <Link href={"../teste/semHead"}>Sem Head</Link>
     </SafeAreaView>
