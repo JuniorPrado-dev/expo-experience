@@ -1,0 +1,55 @@
+import { Tabs } from 'expo-router';
+import React from 'react';
+
+import { TabBarIcon } from '@/components/navigation/TabBarIcon';
+import { Colors } from '@/constants/Colors';
+import { useColorScheme } from '@/hooks/useColorScheme';
+
+export default function TabLayout() {
+  const colorScheme = useColorScheme();
+
+  return (
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        headerShown: false,
+      }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={"black"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="notifications"
+        options={{
+          title: 'Explore',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'notifications' : 'notifications-outline'} color={"black"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="hellos"
+        options={{
+          title: 'Alôs',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'hand-right' : 'hand-right-outline'} color={"black"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="options"
+        options={{
+          title: 'Menu',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'menu' : 'menu-outline'} color={"black"} />
+          ),
+        }}
+      />
+    </Tabs>
+  );
+}
