@@ -1,12 +1,16 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, Pressable, Button } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Link } from 'expo-router';
-
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment, incrementByAmount } from "../../components/conterSlicer/ConterSlicer"
+import { RootState } from '../store';
 export default function HomeScreen() {
+  const count = useSelector((state:RootState) => state.counter.value)
+  const dispatch = useDispatch()
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -17,8 +21,20 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">{count}</ThemedText>
         <HelloWave />
+        <Button
+          title="Decrement"
+          onPress={() => dispatch(decrement())}
+        />
+        <Button
+          title="Increment"
+          onPress={() => dispatch(increment())}
+        />
+        <Button
+          title="Increment by 5"
+          onPress={() => dispatch(incrementByAmount(5))}
+        />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
